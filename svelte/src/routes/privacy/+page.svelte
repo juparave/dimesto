@@ -1,10 +1,33 @@
 <script>
 	// Título de la página
 	const title = 'Aviso de Privacidad';
+	const description =
+		'Conozca nuestro Aviso de Privacidad en dimesto.com. Aquí explicamos cómo recopilamos, usamos y protegemos sus datos personales.';
+	const keywords = 'aviso de privacidad, dimesto, datos personales, privacidad';
+	const author = 'dimesto.com';
+	const url = 'https://dimesto.com/privacy';
+	const ogImage = 'https://dimesto.com/og-image.png'; // Reemplaza con la URL de tu imagen
 </script>
 
 <svelte:head>
-	<title>{title} | DiMesto.com</title>
+	<title>{title} - dimesto.com</title>
+	<meta name="description" content={description} />
+	<meta name="keywords" content={keywords} />
+	<meta name="author" content={author} />
+
+	<!-- Open Graph / Facebook -->
+	<meta property="og:type" content="website" />
+	<meta property="og:url" content={url} />
+	<meta property="og:title" content={`${title} - dimesto.com`} />
+	<meta property="og:description" content={description} />
+	<meta property="og:image" content={ogImage} />
+
+	<!-- Twitter -->
+	<meta property="twitter:card" content="summary_large_image" />
+	<meta property="twitter:url" content={url} />
+	<meta property="twitter:title" content={`${title} - dimesto.com`} />
+	<meta property="twitter:description" content={description} />
+	<meta property="twitter:image" content={ogImage} />
 </svelte:head>
 
 <section class="flex min-h-full items-center justify-center p-4">
