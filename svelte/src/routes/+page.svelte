@@ -31,6 +31,8 @@
 	<meta property="twitter:title" content={title} />
 	<meta property="twitter:description" content={description} />
 	<meta property="twitter:image" content={ogImage} />
+
+	<link rel="canonical" href="https://dimesto.com" />
 </svelte:head>
 
 <main class="container mx-auto p-4">

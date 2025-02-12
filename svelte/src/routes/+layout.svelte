@@ -20,7 +20,7 @@
 	<title>DiMesto</title>
 	<!-- Move GA script after consent manager initialization -->
 	{#if typeof window !== 'undefined'}
-		<script async src="https://www.googletagmanager.com/gtag/js?id=G-CQ3X3X8MSX"></script>
+		<script async src="https://www.googletagmanager.com/gtag/js?id=G-VLS1B3K1MF"></script>
 	{/if}
 </svelte:head>
 

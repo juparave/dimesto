@@ -28,6 +28,7 @@
 	<meta property="twitter:title" content={`${title} - dimesto.com`} />
 	<meta property="twitter:description" content={description} />
 	<meta property="twitter:image" content={ogImage} />
+	<link rel="canonical" href="https://dimesto.com/terms" />
 </svelte:head>
 
 <section class="flex min-h-full items-center justify-center p-4">

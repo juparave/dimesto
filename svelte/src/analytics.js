@@ -18,7 +18,7 @@ export const initGA = () => {
 
     // Initialize with denied consent
     gtag('js', new Date());
-    gtag('config', 'G-CQ3X3X8MSX', {
+    gtag('config', 'G-VLS1B3K1MF', {
         'ad_storage': 'denied',
         'analytics_storage': 'denied',
         'ad_user_data': 'denied',
