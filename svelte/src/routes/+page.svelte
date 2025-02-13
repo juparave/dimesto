@@ -1,4 +1,5 @@
 <script>
+	import AdSense from '$lib/components/AdSense.svelte';
 	import Lotto from '$lib/components/Lotto.svelte';
 	import Random from '$lib/components/Random.svelte';
 
@@ -35,16 +36,27 @@
 	<link rel="canonical" href="https://dimesto.com" />
 </svelte:head>
 
-<main class="container mx-auto p-4">
-	<h1 class="mb-8 text-center text-3xl font-bold">Bienvenido a dimesto.com</h1>
+<AdSense />
 
-	<!-- Componente de Números de Lotería -->
-	<div class="mb-8">
-		<Random />
-	</div>
+<Random />
 
-	<!-- Componente de Números de Melate -->
-	<div>
-		<Lotto />
+<Lotto />
+
+<!-- Nota explicativa sobre los números aleatorios -->
+<section class="flex min-h-full items-center justify-center p-4">
+	<div class="mt-8 w-full max-w-lg rounded-lg bg-gray-50 p-4">
+		<h3 class="mb-2 text-xl font-semibold text-melate">Nota sobre los números aleatorios</h3>
+		<p class="text-gray-700">
+			Los números generados por esta herramienta son <strong>pseudoaleatorios</strong>, lo que
+			significa que no son 100% aleatorios. Las computadoras utilizan algoritmos matemáticos para
+			simular la aleatoriedad, pero estos algoritmos dependen de una "semilla" inicial para producir
+			resultados. Aunque los números parecen aleatorios, en realidad son determinados por dicha
+			semilla.
+		</p>
+		<p class="mt-2 text-gray-700">
+			Esto no afecta la utilidad de la herramienta para la mayoría de los casos, pero es importante
+			tener en cuenta que no son adecuados para aplicaciones que requieren una aleatoriedad
+			absoluta, como la criptografía.
+		</p>
 	</div>
-</main>
+</section>
