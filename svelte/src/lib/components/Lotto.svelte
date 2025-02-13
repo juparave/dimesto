@@ -1,32 +1,42 @@
 <script lang="ts">
 	import { flip } from 'svelte/animate';
+	import { fade } from 'svelte/transition';
 	import { quintOut } from 'svelte/easing';
 
 	let results: number[] = [];
+	let additionalNumber: number | null = null;
 	let showResults = false;
 
+	const addNum = (n: number) => (results = [n, ...results]);
+	const sortNum = () => results.sort((a, b) => a - b);
+
 	// Función para generar números únicos
-	function generateUniqueNumbers() {
+	async function generateUniqueNumbers() {
 		results = [];
+		additionalNumber = null;
 		showResults = false;
 
-		// Generar 6 números únicos entre 1 y 36
+		// Generar 6 números únicos entre 1 y 56
 		while (results.length < 6) {
 			const randomNumber = Math.floor(Math.random() * 56) + 1;
 			if (!results.includes(randomNumber)) {
-				results.push(randomNumber);
+				addNum(randomNumber);
+				sortNum();
+				showResults = true;
+				await delay(700);
 			}
 		}
 
-		// Ordenar los números de menor a mayor
-		results.sort((a, b) => a - b);
-
-		// Mostrar los resultados con animación
-		showResults = true;
+		// Generar un número adicional único
+		let newAdditionalNumber;
+		do {
+			newAdditionalNumber = Math.floor(Math.random() * 56) + 1;
+		} while (results.includes(newAdditionalNumber));
+		additionalNumber = newAdditionalNumber;
 	}
 
 	// Función para crear un retraso
-	function delay(ms) {
+	function delay(ms: number) {
 		return new Promise((resolve) => setTimeout(resolve, ms));
 	}
 </script>
@@ -45,6 +55,11 @@
 			Generar Números
 		</button>
 
+		<!-- Nota sobre los números -->
+		<p class="mb-4 text-center text-gray-600">
+			Se eligen 6 números del 1 al 56 y un número adicional.
+		</p>
+
 		<!-- Resultados -->
 		{#if showResults}
 			<div class="rounded-lg bg-gray-50 p-4">
@@ -61,6 +76,18 @@
 						</div>
 					{/each}
 				</div>
+				<!-- Número adicional -->
+				{#if additionalNumber !== null}
+					<div class="mt-4 text-center">
+						<p class="text-lg font-semibold text-slate-700">Número adicional:</p>
+						<div
+							transition:fade={{ delay: 200, duration: 500 }}
+							class="inline-block rounded-lg bg-blue-500/30 p-4 text-2xl font-bold text-blue-500"
+						>
+							{additionalNumber}
+						</div>
+					</div>
+				{/if}
 			</div>
 		{/if}
 	</div>
