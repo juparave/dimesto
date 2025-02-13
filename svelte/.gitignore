@@ -24,3 +24,6 @@ vite.config.ts.timestamp-*
 
 # firebase deployment
 *.cache
+
+*storybook.log
+.storybook
